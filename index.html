@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alana Abraham | Computer Science Student & Aspiring Software Developer</title>
+<meta name="description" content="Portfolio of Alana Abraham, a Computer Science student with a Psychology degree, focused on software development, cybersecurity, networking, databases, and AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+:root{
+  color-scheme:dark;
+  --paper:#0F0D17;
+  --surface:#181525;
+  --ink:#F1EEF8;
+  --muted:#A9A3BD;
+  --line:#2E2942;
+  --pink:#F2A6C8;
+  --pink-soft:#F7C0D9;
+  --purple:#A78BFA;
+  --tint:#241B38;
+  --on-accent:#1A1226;
+  --head:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;
+  --body:'Public Sans','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;font-size:1.0625rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+section{padding:5rem 0}
+h1,h2,h3{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.75rem,3.5vw,2.4rem);margin-bottom:1rem}
+.lead{color:var(--muted);max-width:62ch}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--head);font-weight:700;font-size:1.2rem;text-decoration:none}
+nav ul{display:flex;gap:1.75rem;list-style:none}
+nav a{text-decoration:none;font-weight:500;color:var(--muted);padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.active{color:var(--ink);border-color:var(--pink)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.45rem .8rem;font:inherit;cursor:pointer}
+
+/* Hero */
+.hero{padding:4.5rem 0 5rem}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.5rem,6vw,4.25rem);margin-bottom:1.1rem}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:52ch;margin-bottom:1.75rem}
+.btns{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--pink);transition:background .2s,color .2s}
+.btn.primary{background:var(--pink);color:var(--on-accent)}
+.btn.primary:hover{background:var(--pink-soft);border-color:var(--pink-soft)}
+.btn.ghost{color:var(--pink-soft)}
+.btn.ghost:hover{background:var(--tint)}
+.facts{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.facts div{font-size:.95rem;color:var(--muted)}
+.facts strong{display:block;font-family:var(--head);font-size:1.6rem;color:var(--ink)}
+.net{width:100%;height:auto;max-width:420px;justify-self:center}
+.net line{stroke:var(--line);stroke-width:2}
+.net .on{stroke:var(--pink);stroke-width:2.5;stroke-dasharray:6 6;animation:flow 2.4s linear infinite}
+.net circle{fill:var(--surface);stroke:var(--pink);stroke-width:3}
+.net circle.alt{stroke:var(--purple)}
+.net text{font:600 12px var(--body);fill:var(--muted)}
+@keyframes flow{to{stroke-dashoffset:-24}}
+
+/* About */
+#about{background:var(--surface);border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about-grid p+p{margin-top:1rem}
+.edu{list-style:none;display:grid;gap:1rem}
+.edu li{padding:1.1rem 1.25rem;border-left:4px solid var(--pink);background:var(--paper);border-radius:0 10px 10px 0}
+.edu li:nth-child(2){border-color:var(--purple)}
+.edu li:nth-child(3){border-color:var(--muted)}
+.edu b{display:block;font-family:var(--head);font-size:1.1rem}
+.edu span{color:var(--muted);font-size:.95rem}
+
+/* Skills */
+.skill-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-top:2rem}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
+.group h3{font-size:1.15rem;margin-bottom:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.chips li{background:var(--tint);color:var(--pink-soft);padding:.35rem .85rem;border-radius:999px;font-size:.95rem;font-weight:500}
+
+/* Projects */
+#projects{background:var(--surface);border-block:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+.card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease,border-color .35s ease}
+.card:hover,.card:focus-within{transform:translateY(-8px);border-color:var(--pink);box-shadow:0 16px 36px rgba(167,139,250,.22)}
+.thumb{height:120px;display:grid;place-items:center;background:linear-gradient(135deg,#7C5CE0,#D9709F);color:#fff}
+.thumb svg{width:52px;height:52px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card-body{padding:1.4rem;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.25rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:1rem;margin-bottom:1rem;flex:1}
+.card .chips li{background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:.85rem;padding:.2rem .7rem}
+.card a.link{margin-top:1.1rem;font-weight:600;color:var(--pink-soft);text-decoration:none}
+.card a.link:hover{text-decoration:underline}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-links{list-style:none;margin-top:1.5rem;display:grid;gap:.75rem}
+.contact-links a{font-weight:500;text-decoration:none;border-bottom:2px solid var(--pink)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem;display:grid;gap:1rem}
+label{font-weight:600;font-size:.95rem;display:grid;gap:.35rem}
+input,textarea{font:inherit;padding:.7rem .85rem;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+form button{cursor:pointer;font:inherit;font-weight:600}
+.note{font-size:.9rem;color:var(--muted)}
+
+/* Footer */
+footer{padding:2rem 0;border-top:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+footer a{text-decoration:none;border-bottom:1px solid var(--line)}
+
+/* Section reveal */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* Tablet */
+@media (max-width:900px){
+  .hero .wrap,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .net{max-width:320px;order:-1}
+  section{padding:4rem 0}
+}
+/* Mobile */
+@media (max-width:640px){
+  .menu-btn{display:block}
+  nav{position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:.5rem 1.25rem 1rem}
+  nav a{display:block;padding:.75rem 0}
+  .grid{grid-template-columns:1fr}
+  .hero{padding:2.5rem 0 3.5rem}
+  .btn{flex:1;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .net .on{animation:none}
+  .card{transition:none}
+  .card:hover,.card:focus-within{transform:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" class="brand">Alana Abraham</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">Hi, I'm Alana Abraham.</h1>
+        <p>I'm a Computer Science student and aspiring software developer. I bring a psychology background and healthcare leadership experience to building secure, reliable, people-friendly software.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">View my projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="facts">
+          <div><strong>3.9</strong>GPA</div>
+          <div><strong>B.S.</strong>Computer Science (in progress)</div>
+          <div><strong>B.A./B.S.</strong>Psychology (completed)</div>
+        </div>
+      </div>
+      <svg class="net" viewBox="0 0 400 360" role="img" aria-label="Network diagram linking people, code, security, data, and AI">
+        <line x1="200" y1="180" x2="80" y2="70"/>
+        <line x1="200" y1="180" x2="320" y2="70"/>
+        <line x1="200" y1="180" x2="70" y2="280"/>
+        <line x1="200" y1="180" x2="330" y2="285"/>
+        <line class="on" x1="200" y1="180" x2="80" y2="70"/>
+        <line class="on" x1="200" y1="180" x2="320" y2="70"/>
+        <line class="on" x1="200" y1="180" x2="70" y2="280"/>
+        <line class="on" x1="200" y1="180" x2="330" y2="285"/>
+        <circle class="alt" cx="200" cy="180" r="34"/>
+        <circle cx="80" cy="70" r="24"/>
+        <circle cx="320" cy="70" r="24"/>
+        <circle class="alt" cx="70" cy="280" r="24"/>
+        <circle cx="330" cy="285" r="24"/>
+        <text x="200" y="185" text-anchor="middle">People</text>
+        <text x="80" y="108" text-anchor="middle">Code</text>
+        <text x="320" y="108" text-anchor="middle">Security</text>
+        <text x="70" y="318" text-anchor="middle">Data</text>
+        <text x="330" y="323" text-anchor="middle">AI</text>
+      </svg>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <div>
+        <h2 id="about-title">About me</h2>
+        <p>I started in psychology, where I learned how people think, communicate, and make decisions. That training still shapes how I approach technology: good software works when it understands the people who use it.</p>
+        <p>I'm now earning a Bachelor of Science in Computer Science with a 3.9 GPA, building skills in programming, cybersecurity, networking, databases, and artificial intelligence.</p>
+        <p>As an Assistant Supervisor in a healthcare setting, I led day-to-day work, supported teammates, and stayed steady under pressure. I'm bringing that leadership, communication, and attention to detail into a career in software development.</p>
+      </div>
+      <ul class="edu" aria-label="Education and experience">
+        <li><b>B.S. in Computer Science</b><span>In progress · GPA 3.9</span></li>
+        <li><b>Bachelor's degree in Psychology</b><span>Completed</span></li>
+        <li><b>Assistant Supervisor</b><span>Healthcare setting · team leadership</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <h2 id="skills-title">Skills</h2>
+      <p class="lead">The languages, tools, and subject areas I use in coursework and personal projects.</p>
+      <div class="skill-groups">
+        <div class="group">
+          <h3>Programming</h3>
+          <ul class="chips"><li>Python</li><li>C++</li><li>Java</li><li>HTML/CSS</li></ul>
+        </div>
+        <div class="group">
+          <h3>Data and tools</h3>
+          <ul class="chips"><li>SQL/MySQL</li><li>Git/GitHub</li></ul>
+        </div>
+        <div class="group">
+          <h3>Security and networking</h3>
+          <ul class="chips"><li>Cybersecurity</li><li>Networking</li><li>Cisco Packet Tracer</li></ul>
+        </div>
+        <div class="group">
+          <h3>Emerging tech</h3>
+          <ul class="chips"><li>Artificial Intelligence</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="wrap">
+      <h2 id="projects-title">Projects</h2>
+      <p class="lead">A selection of academic and personal work across security, networking, AI, and databases.</p>
+      <div class="grid">
+
+        <article class="card">
+          <div class="thumb" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5 8 11v11c0 10 7 17 16 21 9-4 16-11 16-21V11z"/><path d="M17 24l5 5 9-10"/></svg></div>
+          <div class="card-body">
+            <h3>Cybersecurity RAG AI Assistant</h3>
+            <p>An AI assistant that uses retrieval-augmented generation to answer cybersecurity questions from a curated knowledge base, grounding responses in source material.</p>
+            <ul class="chips"><li>Python</li><li>RAG</li><li>AI</li><li>Cybersecurity</li></ul>
+            <a class="link" href="#" aria-label="View Cybersecurity RAG AI Assistant on GitHub">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 20c10-9 26-9 36 0"/><path d="M12 27c7-6 17-6 24 0"/><path d="M18 34c4-3 8-3 12 0"/><circle cx="24" cy="40" r="1.5"/></svg></div>
+          <div class="card-body">
+            <h3>Secure Wireless Network with VPN</h3>
+            <p>A designed and simulated wireless network that uses VPN tunneling to protect traffic between sites, built and tested in Cisco Packet Tracer.</p>
+            <ul class="chips"><li>Networking</li><li>VPN</li><li>Cisco Packet Tracer</li></ul>
+            <a class="link" href="#" aria-label="View Secure Wireless Network with VPN project">View project</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="11" width="36" height="26" rx="3"/><path d="m7 13 17 13 17-13"/></svg></div>
+          <div class="card-body">
+            <h3>Smart Email Router using Generative AI</h3>
+            <p>A tool that reads incoming emails, uses generative AI to understand what each one is about, and routes it to the right destination automatically.</p>
+            <ul class="chips"><li>Python</li><li>Generative AI</li><li>Automation</li></ul>
+            <a class="link" href="#" aria-label="View Smart Email Router on GitHub">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" aria-hidden="true"><svg viewBox="0 0 48 48"><ellipse cx="24" cy="12" rx="14" ry="5"/><path d="M10 12v12c0 3 6 5 14 5s14-2 14-5V12"/><path d="M10 24v12c0 3 6 5 14 5s14-2 14-5V24"/></svg></div>
+          <div class="card-body">
+            <h3>Database Design and SQL Project</h3>
+            <p>A relational database designed from scratch, with an entity-relationship model, normalized tables, and SQL queries for storing and retrieving data.</p>
+            <ul class="chips"><li>SQL/MySQL</li><li>Database design</li><li>ER modeling</li></ul>
+            <a class="link" href="#" aria-label="View Database Design and SQL Project on GitHub">View on GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="contact-title">Contact</h2>
+        <p class="lead">I'm looking for opportunities in software development and technology. Send me a message and I'll reply as soon as I can.</p>
+        <ul class="contact-links">
+          <li><a href="mailto:alanarose24@outlook.com">alanarose24@outlook.com</a></li>
+          <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <form id="contactForm">
+        <label>Your name<input type="text" id="name" required autocomplete="name"></label>
+        <label>Your email<input type="email" id="email" required autocomplete="email"></label>
+        <label>Message<textarea id="message" required></textarea></label>
+        <button type="submit" class="btn primary">Send message</button>
+        <p class="note" id="formNote">This opens your email app with your message ready to send.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> Alana Abraham. All rights reserved.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Smooth scrolling for in-page links (respects reduced-motion)
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const target = id.length > 1 ? document.querySelector(id) : document.getElementById('top');
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'start' });
+      history.replaceState(null, '', id);
+    });
+  });
+
+  // Fade sections in as they enter the viewport
+  const reveals = document.querySelectorAll('main section .wrap');
+  reveals.forEach(el => el.classList.add('reveal'));
+  if ('IntersectionObserver' in window) {
+    const show = new IntersectionObserver((entries, obs) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => show.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // Highlight current section in nav
+  const links = [...nav.querySelectorAll('a')];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
+
+  // Contact form: opens the visitor's email app
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const msg = document.getElementById('message').value;
+    const body = encodeURIComponent(msg + '\n\nFrom: ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:alanarose24@outlook.com?subject=' +
+      encodeURIComponent('Portfolio message from ' + name) + '&body=' + body;
+    document.getElementById('formNote').textContent = 'Opening your email app. If nothing happens, email me directly at the address on the left.';
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
